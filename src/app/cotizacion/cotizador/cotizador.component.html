@@ -1,0 +1,30 @@
+<p>cotizador works!</p>
+
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+ 
+    <div>       
+        <input formControlName="sucursal" >
+        <span *ngIf= "form.controls['sucursal'].errors">x</span>
+        <span *ngIf="form.controls['sucursal'].valid">a</span>
+       
+    </div>
+    <div>
+        <input formControlName="agente" >
+        <span *ngIf="form.controls['agente'].errors">x</span>
+        <span *ngIf="form.controls['agente'].valid">a</span>
+    </div>
+    <div>
+         <button type="submit" >Cotizar</button>
+   </div>
+ </form>
+
+<p>
+   
+   {{ form.status }} 
+   {{ form.value | json}}
+   
+  
+</p>
+
+ <!--<button (click)="setValue()">Set preset value</button>-->

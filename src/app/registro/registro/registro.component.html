@@ -1,0 +1,26 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+ 
+    <div>       
+        <input formControlName="clave" >
+        <span  *ngIf= "form.controls['clave'].errors"><i class="fas fa-times"></i></span>
+        <span *ngIf="form.controls['clave'].valid"><i class="fas fa-check"></i></span>
+       
+    </div>
+    <div>
+        <input formControlName="contrasena" >
+        <span *ngIf="form.controls['contrasena'].errors">x</span>
+        <span *ngIf="form.controls['contrasena'].valid">a</span>
+    </div>
+    <div>
+         <button type="submit" >Ingreso</button>
+   </div>
+ </form>
+
+<p>
+   
+   {{ form.status }} 
+   {{ form.value | json}}
+   {{ usuario }}
+   {{ auth }}
+  
+</p>

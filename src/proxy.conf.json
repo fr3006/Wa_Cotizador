@@ -1,0 +1,9 @@
+{
+   "/api*":
+   {
+       "target":"https://www.solidaria.com.co",
+       "secure": false,
+       "logLevel":"debug"
+   }
+
+}

@@ -1,0 +1,21 @@
+
+
+
+<body>
+<div >
+ <ul> 
+ 
+  <li class="nav-item" [routerLinkActive]="['link-active']">
+    <a class="nav-link text-dark" [routerLink]="['/registro']"
+      >Registo</a
+    >
+    <li class="nav-item" [routerLinkActive]="['link-active']">
+      <a class="nav-link text-dark" [routerLink]="['/cotizador']"
+        >Cotizar</a
+      >
+</li>
+ </ul> 
+
+  <router-outlet></router-outlet>
+</div>
+</body>

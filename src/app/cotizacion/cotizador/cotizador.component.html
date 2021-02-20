@@ -1,28 +1,109 @@
 <p>cotizador works!</p>
 
 
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form [formGroup]="formHead" (ngSubmit)="onSubmit()">
  
     <div>       
-        <input formControlName="sucursal" >
-        <span *ngIf= "form.controls['sucursal'].errors">x</span>
-        <span *ngIf="form.controls['sucursal'].valid">a</span>
+        <input formControlName="cod_sucursal" >
+        <span *ngIf= "formHead.controls['cod_sucursal'].errors">x</span>
+        <span *ngIf= "formHead.controls['cod_sucursal'].valid">a</span>
        
     </div>
     <div>
-        <input formControlName="agente" >
-        <span *ngIf="form.controls['agente'].errors">x</span>
-        <span *ngIf="form.controls['agente'].valid">a</span>
+        <input formControlName="cod_per" >
+        <span *ngIf="formHead.controls['cod_per'].errors">x</span>
+        <span *ngIf="formHead.controls['cod_per'].valid">a</span>
     </div>
     <div>
-         <button type="submit" >Cotizar</button>
+        <input formControlName="cod_tipo_agente" >
+        <span *ngIf="formHead.controls['cod_tipo_agente'].errors">x</span>
+        <span *ngIf="formHead.controls['cod_tipo_agente'].valid">a</span>
+    </div>    
+    <div>
+        <input formControlName="agente" >
+        <span *ngIf="formHead.controls['agente'].errors">x</span>
+        <span *ngIf="formHead.controls['agente'].valid">a</span>
+    </div>
+    <div>
+        <input formControlName="cod_pto_vta" >
+        <span *ngIf="formHead.controls['cod_pto_vta'].errors">x</span>
+        <span *ngIf="formHead.controls['cod_pto_vta'].valid">a</span>
+    </div>
+    <div formGroupName="personas">
+        <div> 
+        <input 
+        formControlName="primerApellido"
+        >  
+           
+        <span *ngIf="formHead.get('personas.primerApellido').errors"
+        >Your email is invalid email</span>
+    </div>  
+    <div>
+        <input formControlName="nombre" >
+      
+    </div>
+    <div>
+        <input formControlName="tipo" >
+       
+    </div>
+    <div>
+        <input formControlName="numero" >
+        
+    </div>
+    <div>
+        <input formControlName="genero" >
+       
+    </div>
+    <div>
+        <input type="datetime" formControlName="fechaNacimiento" >
+        
+    </div>
+    <div>
+        <input  formControlName="modelo" >
+       
+    </div>
+    <div>
+        <input  formControlName="fasecolda" >
+      
+    </div>
+    <div>
+        <input  formControlName="es0Km" >
+       
+    </div>
+    <div>
+        <input  formControlName="placa" >
+       
+    </div>
+    <div>
+        <input  formControlName="ciudad" >
+     
+    </div>
+    <div>
+        <input  formControlName="ValorAsegurable" >
+        
+    </div>
+    <div>
+        <input  formControlName="Uso" >
+        
+    </div>
+    <div>
+        <input  formControlName="TipodeSeguro" >
+     
+    </div>
+    <div>
+        <input  formControlName="ValorAceesorios" >
+       
+    </div>
+    </div>
+    <div>
+         <button type="submit">Cotizar</button>
    </div>
- </form>
+</form>
 
 <p>
    
-   {{ form.status }} 
-   {{ form.value | json}}
+   {{ formHead.status }} 
+   {{ formHead.value | json}}
    
   
 </p>

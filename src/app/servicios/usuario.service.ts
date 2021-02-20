@@ -37,7 +37,7 @@ export class UsuarioService {
     this.userToken = idToken;
     this.typeToken   =tipoToken;
     localStorage.setItem(tipoToken,idToken);
- 
+   
  }
 
   logout(){

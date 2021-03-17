@@ -8,7 +8,7 @@ export class Cotizacion {
     primerApellido: string = '';
     nombre: string = '';    
     tipo:   number = 0;
-    numero: number = 0;
+    numero: string = '';
     genero:  string = '';
     fechaNacimiento: Date = new Date() ;
     modelo: number = 0;

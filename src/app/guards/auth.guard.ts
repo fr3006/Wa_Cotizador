@@ -11,8 +11,7 @@ import { Usuario } from '../models/usuario';
 
 export class AuthGuard implements CanActivate {
  
-  usuarioToken :string = '';
-  tipoToken: string = '';
+ 
   
   constructor(private usuarioService: UsuarioService){}
 
@@ -20,16 +19,18 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
      
-   this.usuarioService.userToken = this.usuarioToken;
-   this.usuarioService.typeToken = this.tipoToken;
+ 
    
-      
-    //console.log('paso por el canactivate del guard');
-    //console.log(this.usuarioService.userToken);
-    //console.log(this.usuarioService.typeToken);
-    //console.log(this.usuarioToken);
-    //console.log(this.tipoToken);
-    return true;
+  if( sessionStorage.getItem('bearer') == '' || sessionStorage.getItem('bearer') == null)
+     {
+        return false;
+      }
+  else
+     {
+        return true;
+      }  
+    
+          
   }
   
 }

@@ -2,110 +2,109 @@
 
 
 <form [formGroup]="formHead" (ngSubmit)="onSubmit()">
- 
-    <div>       
-        <input formControlName="cod_sucursal" >
-        <span *ngIf= "formHead.controls['cod_sucursal'].errors">x</span>
-        <span *ngIf= "formHead.controls['cod_sucursal'].valid">a</span>
-       
+
+    <div>
+        <input formControlName="cod_sucursal">
+        <span *ngIf="formHead.controls['cod_sucursal'].errors">x</span>
+        <span *ngIf="formHead.controls['cod_sucursal'].valid">a</span>
+
     </div>
     <div>
-        <input formControlName="cod_per" >
+        <input formControlName="cod_per">
         <span *ngIf="formHead.controls['cod_per'].errors">x</span>
         <span *ngIf="formHead.controls['cod_per'].valid">a</span>
     </div>
     <div>
-        <input formControlName="cod_tipo_agente" >
+        <input formControlName="cod_tipo_agente">
         <span *ngIf="formHead.controls['cod_tipo_agente'].errors">x</span>
         <span *ngIf="formHead.controls['cod_tipo_agente'].valid">a</span>
-    </div>    
-    <div>
-        <input formControlName="agente" >
-        <span *ngIf="formHead.controls['agente'].errors">x</span>
-        <span *ngIf="formHead.controls['agente'].valid">a</span>
     </div>
     <div>
-        <input formControlName="cod_pto_vta" >
+        <input formControlName="cod_agente">
+        <span *ngIf="formHead.controls['cod_agente'].errors">x</span>
+        <span *ngIf="formHead.controls['cod_agente'].valid">a</span>
+    </div>
+    <div>
+        <input formControlName="cod_pto_vta">
         <span *ngIf="formHead.controls['cod_pto_vta'].errors">x</span>
         <span *ngIf="formHead.controls['cod_pto_vta'].valid">a</span>
     </div>
+
     <div formGroupName="personas">
-        <div> 
-        <input 
-        formControlName="primerApellido"
-        >  
-           
-        <span *ngIf="formHead.get('personas.primerApellido').errors"
-        >Your email is invalid email</span>
-    </div>  
-    <div>
-        <input formControlName="nombre" >
-      
+        <div>
+            <input formControlName="primerApellido">
+            <span *ngIf="formHead.get('personas.primerApellido').errors">Your email is invalid email</span>
+        </div>
+        <div>
+            <input formControlName="nombre">
+        </div>
+
+        <div formGroupName="documento">
+            <div>
+                <input formControlName="tipo">
+            </div>
+            <div>
+                <input formControlName="numero">
+
+            </div>
+        </div>
+        <div>
+            <input formControlName="genero">
+
+        </div>
+        <div>
+            <input type="datetime" formControlName="fechaNacimiento">
+
+        </div>
+
+        <div formGroupName="vehiculo">
+            <div>
+                <input formControlName="modelo">
+
+            </div>
+            <div>
+                <input formControlName="fasecolda">
+
+            </div>
+            <div>
+                <input formControlName="es0Km">
+
+            </div>
+            <div>
+                <input formControlName="placa">
+
+            </div>
+            <div>
+                <input formControlName="ciudad">
+
+            </div>
+            <div>
+                <input formControlName="valorAsegurable">
+
+            </div>
+            <div>
+                <input formControlName="uso">
+
+            </div>
+            <div>
+                <input formControlName="tseguro">
+
+            </div>
+            <div>
+                <input formControlName="valorAcc">
+            </div>
+        </div>
     </div>
     <div>
-        <input formControlName="tipo" >
-       
+        <button type="submit">Cotizar</button>
     </div>
-    <div>
-        <input formControlName="numero" >
-        
-    </div>
-    <div>
-        <input formControlName="genero" >
-       
-    </div>
-    <div>
-        <input type="datetime" formControlName="fechaNacimiento" >
-        
-    </div>
-    <div>
-        <input  formControlName="modelo" >
-       
-    </div>
-    <div>
-        <input  formControlName="fasecolda" >
-      
-    </div>
-    <div>
-        <input  formControlName="es0Km" >
-       
-    </div>
-    <div>
-        <input  formControlName="placa" >
-       
-    </div>
-    <div>
-        <input  formControlName="ciudad" >
-     
-    </div>
-    <div>
-        <input  formControlName="ValorAsegurable" >
-        
-    </div>
-    <div>
-        <input  formControlName="Uso" >
-        
-    </div>
-    <div>
-        <input  formControlName="TipodeSeguro" >
-     
-    </div>
-    <div>
-        <input  formControlName="ValorAceesorios" >
-       
-    </div>
-    </div>
-    <div>
-         <button type="submit">Cotizar</button>
-   </div>
 </form>
 
 <p>
-   
-   {{ formHead.status }} 
-   {{ formHead.value | json}}
-   
-  
+
+    {{ formHead.status }} {{ formHead.value | json}}
+
+
 </p>
 
- <!--<button (click)="setValue()">Set preset value</button>-->
+<!--<button (click)="setValue()">Set preset value</button>-->

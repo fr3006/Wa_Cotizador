@@ -12,7 +12,7 @@ import { tokenReference } from '@angular/compiler';
 export class UsuarioService {
 
 
-  private url = ' http://web1services/WS_IntegracionAutos/';   
+  private url = 'http://web1services/Ws_IntegracionAutos/';   
 
   userToken: string= "";
   typeToken: string= "";
@@ -35,10 +35,15 @@ export class UsuarioService {
   public guardarToken(idToken : string, tipoToken:string)
   {
     this.userToken = idToken;
-    this.typeToken   =tipoToken;
-    localStorage.setItem(tipoToken,idToken);
-   
+    this.typeToken = tipoToken;    
+    sessionStorage.setItem(tipoToken,idToken);
  }
+
+  consultaToken() 
+  {
+    return sessionStorage.getItem('idToken')    
+  }
+    
 
   logout(){
 

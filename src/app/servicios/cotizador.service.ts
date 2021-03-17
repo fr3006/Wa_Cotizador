@@ -1,7 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { DebugElement, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Usuario } from '../models/usuario'
+import { Cotizacion } from '../models/cotizacion'
+import { map } from 'rxjs/operators';
+import { Console } from 'console';
 
 
 @Injectable({
@@ -9,12 +11,32 @@ import { Usuario } from '../models/usuario'
 })
 export class CotizadorService {
 
-  private url = 'http://www.solidaria.com.co/WS_IntegracionAutos/token';   
+  private url = 'http://web1services/Ws_IntegracionAutos/';   
 
-  userToken: string= "";
+  //headers = new HttpHeaders({ 'Content-Type':  'application/json', 'Authorization': 'Bearer' + sessionStorage.getItem('bearer') });
+  constuserToken: string= "";
 
-  constructor() {    
+  constructor(private http:HttpClient) {
+   
    }
 
+  cotizar(datos_request : Cotizacion )
+  {
   
-}
+    const headersr=new HttpHeaders(
+         {
+          'Access-Control-Allow-Origen' : '*', 
+          'Authorization': 'Bearer ' + sessionStorage.getItem('bearer'),
+           'Content-Type': 'application/json',
+        
+         });
+         return this.http.post(this.url + 'api/Proceso/Cotizar',  datos_request, {headers: headersr })
+         .pipe(map(
+           (resp:any)=>
+           {
+             return resp;
+           }
+         ));       
+    }
+
+ }

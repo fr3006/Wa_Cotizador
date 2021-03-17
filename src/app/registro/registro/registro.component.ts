@@ -4,8 +4,11 @@ import {FormsModule ,FormGroup, FormBuilder, Validators, FormArray,NgForm,FormCo
 import { access } from 'fs';
 import { error } from 'protractor';
 import { Usuario } from 'src/app/models/usuario';
-import { CotizadorService } from 'src/app/servicios/cotizador.service';
+
 import { UsuarioService } from 'src/app/servicios/usuario.service';
+import Swal from 'sweetalert2';
+import { runInThisContext } from 'vm';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -18,8 +21,8 @@ export class RegistroComponent implements OnInit {
    
 
   constructor(
-    public auth: UsuarioService
-
+    public auth: UsuarioService,
+    private router : Router
   ) { }
 
   ngOnInit(): void {
@@ -37,15 +40,13 @@ export class RegistroComponent implements OnInit {
      this.auth.login(this.form.value )
      .subscribe(resp => {
        
-       console.log(resp); 
+      this.router.navigateByUrl('/cotizador');        
              
      },
      (err) => 
       {
-       console.log(err.status);
-             
-     })
-    
+      Swal.fire('Error',err.error.error_description,'error')               
+     })    
   }
 
 

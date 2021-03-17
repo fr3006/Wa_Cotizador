@@ -1,9 +1,10 @@
 {
-   "/api*":
-   {
-       "target":"https://www.solidaria.com.co",
-       "secure": false,
-       "logLevel":"debug"
-   }
-
+    "/api": {
+        "target": "www.solidaria.com.co/Ws_IntegracionAutos",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
 }
